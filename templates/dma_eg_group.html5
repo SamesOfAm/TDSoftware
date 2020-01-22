@@ -1,0 +1,24 @@
+<div class="work-group <?= $this->elements['position'] ?>" data-group="<?= $this->elements['name'] ?>">
+    <?= $this->elements['image']; ?>
+    <div class="description">
+        <h4 class="mobile-only"><?= $this->elements['name'] ?></h4>
+        <?= $this->elements['description']; ?>
+    </div>
+    <div class="group-benefits">
+        <div class="we-offer-text">
+            <h5>Was wir bieten</h5>
+            <p><?= $this->elements['we-offer']; ?></p>
+        </div>
+        <div>
+            <h5>Benefits</h5>
+            <?php foreach($this->data['benefits']['value'] as $value): ?>
+                <span class="group-benefit-icon"><img src="files/assets/layout/<?=  $value; ?>-white.svg"></span>
+            <?php endforeach; ?>
+            <div class="more-benefits-link">
+                <a href="karriere.html#benefits" class="more-benefits prevent-default scrolling-link">
+                    Mehr Benefits
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

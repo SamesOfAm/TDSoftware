@@ -1,0 +1,118 @@
+@import 'variables';
+
+#header {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
+#navigation {
+  margin-top: 25px;
+}
+
+.logo {
+  float: left;
+  width: 200px;
+  margin-top: 4px;
+  margin-left: 4%;
+}
+
+#header-navigation {
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin-right: 4%;
+  width: 450px;
+  font-family: 'NB International', sans-serif;
+  p {
+    margin-top: 22px;
+    a {
+      display: inline-block;
+      position: relative;
+      color: white;
+      text-decoration: none;
+      &:after {
+        position: absolute;
+        content: '';
+        top: 1.8em;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $dark-orange;
+        transition: width 250ms;
+        -webkit-transition: width 250ms;
+        -moz-transition: width 250ms;
+        -o-transition: width 250ms;
+      }
+      &:hover:after {
+        width: 100%;
+      }
+      &.active {
+        color: $dark-orange;
+        &:hover:after {
+            width: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $smartphone) {
+  #header .inside {
+    width: 100%;
+    height: 100px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  #navigation {
+    margin-top:25px;
+    float: left;
+    margin-left: 4%;
+    overflow: visible;
+  }
+
+  #header-navigation {
+    display: none;
+  }
+  
+  .mobile_menu_trigger {
+    cursor: pointer;
+  }
+
+  .mod_mobile_menu {
+    position: absolute;
+    top: 36%;
+    right: 4%;
+  }
+
+  .mobile_menu .inner {
+    display: flex;
+    align-content: center;
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      width: 150px;
+      align-content: center;
+      margin: 0 auto;
+      font-family: 'NB International', sans-serif;
+    }
+    p {
+      margin: 15px 0;
+      a {
+        font-size: 30px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        outline: none;
+      }
+    }
+  }
+
+  .mobile_menu.active.position_right {
+    box-shadow: 0 0 43px 31px rgba(0,0,0,1);
+  }
+
+}

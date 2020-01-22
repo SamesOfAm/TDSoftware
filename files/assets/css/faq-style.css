@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'NB International';
+    src: url("../fonts/nb_international_pro_bold-webfont.woff") format('woff');
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'NB International', sans-serif;
+}
+
+@media screen and (max-width: 1025px) {
+    #cboxLoadedContent #main .inside {
+        padding: 45px;
+    }
+}

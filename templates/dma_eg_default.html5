@@ -1,0 +1,26 @@
+<?= $this->divs ? '' : '<ul>'; ?>
+<div class="referenz <?= $this->elements['text-color']; ?>" style="background-color:#<?= $this->data['background-color']['value'] ?>" data-customer="<?= $this->elements['name'] ?>">
+    <div class="ref-main-image desktop-only <?= $this->elements['image-orientation']; ?>">
+        <?= $this->elements['main-image']; ?>
+    </div>
+    <div class="ref-main-image mobile-only <?= $this->elements['image-orientation']; ?>">
+        <?= $this->elements['image-mobile']; ?>
+    </div>
+    <h3 class="ref-title mobile-only"><?= $this->elements['name'] ?></h3>
+    <div class="ref-text" style="<?php if($this->elements['text-color'] == 'bright'): ?>color: white;<?php endif; ?>">
+      <h3 class="ref-h3" <?php if($this->elements['text-color'] == 'bright'): ?>style="color: white;"<?php endif; ?>><?= $this->elements['headline']; ?></h3>
+      <p class="ref-description"><?= $this->elements['description']; ?></p>
+      <?= $this->elements['link-url'] ?>
+    </div>
+    <div class="short-facts-wrapper">
+        <div class="short-facts">
+            <h4>Kategorie</h4>
+            <p><?= $this->elements['category']; ?></p>
+            <h4>Branche</h4>
+            <p><?= $this->elements['sector']; ?></p>
+            <h4>Kunde</h4>
+            <p><?= $this->elements['customer']; ?></p>
+        </div>
+    </div>
+</div>
+<?= $this->divs ? '' : '</ul>'; ?>
