@@ -35,13 +35,9 @@
         let contactLink = document.querySelector('.scroll-to-end');
         contactLink.addEventListener('click', function(e) {
             e.preventDefault();
-            let body = document.body,
-                html = document.documentElement;
-            let height = Math.max(body.scrollHeight, body.offsetHeight,
-                html.clientHeight, html.scrollHeight, html.offsetHeight);
             jQuery('html, body').animate({
-                scrollTop: height
-            }, 800);
+                scrollTop: jQuery(e.target.hash).offset().top
+            })
         });
         if (document.querySelector('.scroll-to-jobs') !== null) {
             let scrollToJobsLink = document.querySelector('.scroll-to-jobs');
@@ -125,4 +121,18 @@
         document.querySelector('.social-media').classList.add('error-bump');
         jQuery("html, body").animate({ scrollTop: jQuery(document).height() }, "slow");
     }
+</script>
+
+
+<script type="text/javascript" src="files/assets/js/fullpage.js"></script>
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        licenseKey: 'F072EB1D-C39143F7-8FF38B6E-AD2F5BB4',
+        verticalCentered: false,
+        css3: false,
+        anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9']
+    });
+    setTimeout(function(){
+        document.getElementById('footer').style.height = "100%;";
+    }, 1000);
 </script>

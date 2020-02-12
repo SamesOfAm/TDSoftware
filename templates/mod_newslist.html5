@@ -1,0 +1,16 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <?php if (empty($this->articles)): ?>
+    <p class="empty"><?= $this->empty ?></p>
+  <?php else: ?>
+    <?= implode('', $this->articles) ?>
+    <?= $this->pagination ?>
+  <?php endif; ?>
+<div class="ce_text show-all-wrapper block">
+  <p><a class="show-all" href="{{link_url::46}}">Alle Beiträge ></a></p>
+</div>
+
+<?php $this->endblock(); ?>
+

@@ -25,12 +25,17 @@
   }
 }
 
-#main-teaser > .ce_image {
-  height: 100%;
+#main #main-teaser.mod_article {
+  background: url("../../bilder/work/tdsoftware-team-meeting-fun-career.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#main-teaser .ce_image {
   figure {
-    height: 100%;
+    height: 100vh;
     img {
-      height: 100%;
+      height: 100vh;
       object-fit: cover;
       -o-object-fit: cover;
       position: fixed;
@@ -106,7 +111,7 @@ p {
   }
 }
 
-.align-center-article {
+.align-center-article,.align-center-article .fp-tableCell {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -181,6 +186,62 @@ p {
   margin: 0 0 30px;
   font-size: 17px;
   color: $dark-gray;
+}
+
+#main .mod_article.services {
+  background-color: #232323;
+  color: white;
+  display: flex;
+  align-content: center;
+  .ce_text {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    h2 {
+      width: 100%;
+      margin: 0 0 50px 0;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .services-intro {
+      width: 100%;
+      text-align: center;
+      margin: 0 0 50px 0;
+      p {
+        display: block;
+        width: 90%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+    .service {
+      width: 30%;
+      margin: 0 1.6%;
+      max-width: 500px;
+      table {
+        td:first-child {
+          img {
+            max-width: initial;
+            height: initial;
+            max-height: 50px;
+            width: auto;
+          }
+        }
+        h3 {
+          text-align: left;
+          font-size: 25px;
+          padding: 0 30px;
+        }
+      }
+      > p {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 .gray {
@@ -307,7 +368,7 @@ p {
   }
 }
 
-#work > div > h3 {
+#work > div > h3, #work .fp-tableCell .ce_sliderStart > h3 {
   position: absolute;
   z-index: 1;
   left: 50%;
@@ -1159,20 +1220,22 @@ h3.center-content {
   height: auto;
   .ce_gallery {
     width: 25%;
+    height: 100vh;
     float: left;
     ul {
-      height: 48.7vw;
+      height: 100vh;
       li {
         width: 100%;
         figure {
           overflow: hidden;
           width: 100%;
           img {
+            width: 100%;
+            object-fit: cover;
             -webkit-transform: scale(1.01);
             -ms-transform: scale(1.01);
             transform: scale(1.01);
             display: block;
-            width: 100%;
             transition: filter 500ms, transform 1500ms;
             &:hover {
               filter: saturate(15%);
@@ -1184,8 +1247,29 @@ h3.center-content {
         }
       }
     }
+    &.small-top ul li {
+        &:nth-child(1) img {
+          height: 33.333vh;
+        }
+        &:nth-child(2) img {
+          height: 66.666vh;
+        }
+      }
+      &.big-top ul li {
+          &:nth-child(1) img {
+            height: 66.666vh;
+          }
+          &:nth-child(2) img {
+            height: 33.333vh;
+          }
+        }
+      &.three-even ul {
+        li img {
+          height: 33.333vh;
+        }
+      }
+    }
   }
-}
 
 #main #culture {
   display: flex;
@@ -1231,8 +1315,16 @@ h3.center-content {
   h1 {
     font-size: 80px;
   }
-  h3 {
-    font-size: 80px;
+  h3, #main .mod_article.services .ce_text {
+    .services-intro {
+      margin: 40px 0;
+    }
+    h2 {
+      font-size: 80px;
+    }
+    .service {
+      margin: 1.6%;
+    }
   }
   .referenz.right .ref-main-image .ce_image figure img {
      max-width:650px;
@@ -1329,6 +1421,25 @@ h3.center-content {
 
   .hero-numbers {
     display: none;
+  }
+
+  #main .mod_article.services {
+    height: auto;
+    .ce_text {
+      h2 {
+        margin: 60px 0 10px 0;
+        font-size: 30px;
+      }
+      .service, .service:nth-child(4), .service:nth-child(8) {
+        width: 90%;
+        max-width: initial;
+
+      }
+      .services-intro p {
+        margin: 50px auto;
+        text-align: left;
+      }
+    }
   }
 
   #main .mod_article#work {

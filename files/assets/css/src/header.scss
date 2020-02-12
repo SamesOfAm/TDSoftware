@@ -10,11 +10,29 @@
   margin-top: 25px;
 }
 
+#main #navigation.mod_article {
+  position: initial;
+  z-index: 0;
+  background: none;
+  width: initial;
+  height: initial;
+}
+
 .logo {
   float: left;
   width: 200px;
   margin-top: 4px;
   margin-left: 4%;
+}
+
+#container #header #navigation .logo {
+  figure {
+    height: auto;
+    img {
+      height: auto;
+      width: auto;
+    }
+  }
 }
 
 #header-navigation {
