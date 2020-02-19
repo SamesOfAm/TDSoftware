@@ -1,13 +1,5 @@
  <div class="layout_full block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
 
-  <div class="ce_image block">
-    <figure>
-      <img src="<?= $this->singleSRC; ?>">
-    </figure>
-  </div>
-
-  <h1 itemprop="name"><?= $this->newsHeadline ?></h1>
-
   <?php if ($this->hasMetaFields): ?>
     <p class="info">
       <span class="weekday"><?php echo $this->parseDate("D", $this->timestamp); ?></span>
@@ -16,6 +8,15 @@
       <span class="year"><?php echo $this->parseDate("Y", $this->timestamp); ?></span>
     </p>
   <?php endif; ?>
+
+  <h1 itemprop="name"><?= $this->newsHeadline ?></h1>
+
+
+  <div class="ce_image block">
+    <figure>
+      <img src="<?= $this->singleSRC; ?>">
+    </figure>
+  </div>
 
   <?php if ($this->hasSubHeadline): ?>
     <h2><?= $this->subHeadline ?></h2>
@@ -49,5 +50,15 @@
       <?php endforeach; ?>
     </ul>
   <?php endif; ?>
+
+<?php if ($this->categories): ?>
+    <p class="half-width">
+        <?php foreach ($this->categories as $category): ?>
+            <?php echo "<span class='related'>" .$category['title']. "</span>"; ?>
+        <?php endforeach; ?>
+    </p>
+<?php endif; ?>
+
+{{insert_module::13}}
 
 </div>

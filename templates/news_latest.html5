@@ -16,15 +16,27 @@
       </p>
     <?php endif; ?>
 
+    <?php if ($this->categories): ?>
+        <p class="main-category">
+            <span>
+                <?php
+                    $firstCategory = reset($this->categories);
+                    echo $firstCategory["title"];
+                ?>
+            </span>
+        </p>
+    <?php endif; ?>
+
 
     <h2 itemprop="name"><?= $this->linkHeadline ?></h2>
+
 
     <div class="ce_text block" itemprop="description">
       <?= $this->teaser ?>
     </div>
 
     <?php if ($this->hasText || $this->hasTeaser): ?>
-      <!-- <p class="more"><?= $this->more ?></p> -->
+      <p class="more"><?= $this->more ?></p>
     <?php endif; ?>
   </div>
 </div>

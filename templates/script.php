@@ -1,4 +1,6 @@
 <script>
+    let shareIconsShowing = false;
+    const currentLanguage = document.children[0].lang;
     let entered = false;
     function scrollSmoothly(e) {
         e.preventDefault();
@@ -14,7 +16,7 @@
     }
     let emailField = document.getElementById('ctrl_EMAIL');
     emailField.labels[0].childNodes[3].style.display = 'none';
-    switch(document.children[0].lang) {
+    switch(currentLanguage) {
         case 'de':
             document.getElementById('ctrl_submit').innerHTML = "Abonnieren";
             emailField.labels[0].childNodes[2].data = "Newsletter abonnieren";
@@ -29,6 +31,13 @@
             document.getElementById('ctrl_submit').innerHTML = "Subscribe";
             emailField.labels[0].childNodes[2].data = "Subscribe to newsletter";
 
+    }
+    if (document.getElementById('top').classList.contains('blog') && currentLanguage === 'de' || document.getElementById('top').classList.contains('blog-article') && currentLanguage === 'de') {
+        emailField.labels[0].childNodes[2].data = "Nichts mehr verpassen!";
+        document.getElementById('ctrl_submit').innerHTML = "Newsletter abonnieren";
+    } else if (document.getElementById('top').classList.contains('blog') && currentLanguage === 'en' || document.getElementById('top').classList.contains('blog-article') && currentLanguage === 'en') {
+        emailField.labels[0].childNodes[2].data = "Stay tuned in!";
+        document.getElementById('ctrl_submit').innerHTML = "Subscribe to Newsletter";
     }
     let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
     jQuery(document).ready(function() {
@@ -121,10 +130,22 @@
         document.querySelector('.social-media').classList.add('error-bump');
         jQuery("html, body").animate({ scrollTop: jQuery(document).height() }, "slow");
     }
+
+    function toggleShareIcons() {
+        if (shareIconsShowing === false) {
+            document.querySelector('.sharebuttons').querySelector('ul').style.right = '15px';
+            document.querySelector('.sharebuttons').querySelector('ul').style.opacity = '1';
+            shareIconsShowing = true;
+        } else {
+            document.querySelector('.sharebuttons').querySelector('ul').style.right = '-190px';
+            document.querySelector('.sharebuttons').querySelector('ul').style.opacity = '0';
+            shareIconsShowing = false;
+        }
+    }
 </script>
 
 
-<script type="text/javascript" src="files/assets/js/fullpage.js"></script>
+<script type="text/javascript" src="files/assets/j/fullpage.js"></script>
 <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
         licenseKey: 'F072EB1D-C39143F7-8FF38B6E-AD2F5BB4',
