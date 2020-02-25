@@ -44,9 +44,14 @@
         let contactLink = document.querySelector('.scroll-to-end');
         contactLink.addEventListener('click', function(e) {
             e.preventDefault();
+            let body = document.body,
+                html = document.documentElement;
+            let height = Math.max(body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight);
             jQuery('html, body').animate({
-                scrollTop: jQuery(e.target.hash).offset().top
-            })
+                scrollTop: height
+            }, 800);
+            scrollTop: jQuery(e.target.hash).offset().top
         });
         if (document.querySelector('.scroll-to-jobs') !== null) {
             let scrollToJobsLink = document.querySelector('.scroll-to-jobs');

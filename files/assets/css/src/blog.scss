@@ -25,8 +25,9 @@
     color: white;
     .info {
       color: $dark-orange;
-      font-weight: bold;
       line-height: 1em;
+      letter-spacing: 1px;
+      font-weight: normal;
     }
     .layout_latest .info {
       width: 60%;
@@ -132,6 +133,9 @@
   max-width: $max-width;
   margin-top: 100px;
   font-family: "NB International", sans-serif;
+  .comment p {
+    font-size: 13px;
+  }
   .widget {
     margin: 20px 0;
     label {
@@ -244,7 +248,7 @@
 }
 
 .mod_newslist.related-articles {
-  width: $width;
+  width: 100%;
   max-width: $max-width;
   margin: 0 auto 100px;
   > .layout_latest {
@@ -318,7 +322,7 @@
 .mod_newscategories {
   width: $width;
   max-width: $max-width;
-  margin: 650px auto 0;
+  margin: 850px auto 0;
   h2 {
     margin-bottom: 0;
   }
@@ -497,5 +501,92 @@
     padding: 4px 7px;
     background-color: white;
     color: #232323;
+  }
+}
+
+@media screen and (max-width: $smartphone) {
+  body.blog {
+    background: #232323;
+  }
+
+  .blog #main {
+    background: none;
+    .mod_article.blog-wrapper > div {
+      width: 90%;
+      margin: 0 auto;
+      float: none;
+    }
+    .layout_latest {
+       width: 100%;
+       h2 {
+         margin-bottom: 15px;
+       }
+       .more {
+         margin-top: 0;
+       }
+     }
+  }
+
+  .right-column {
+    width: 90%;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .blog #ctrl_submit, .blog-article #ctrl_submit {
+    margin-top: 0;
+    margin-left: 8px;
+  }
+
+  .blog #container {
+    margin-bottom: 700px;
+  }
+
+  .blog #footer {
+    height: 700px;
+  }
+
+  .blog-article #main .mod_newsreader {
+    width: 100%;
+    margin: 75px auto;
+  }
+
+  .mod_newslist.related-articles {
+    margin: 0 auto;
+    > .layout_latest {
+      width: 100%;
+      height: auto;
+      margin-bottom: 100px;
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  #article-detail .right-column {
+    width: 100%;
+  }
+
+  .blog-article #main .mod_article h2.ce_headline {
+    width: 100%;
+  }
+
+  .blog #container, .blog-article #container {
+    margin-bottom: 700px;
+  }
+
+  .blog #footer, .blog-article #footer {
+    height: 700px;
+    .social-media {
+      bottom: -25px;
+    }
+  }
+
+  .blog #main .mod_newslist:not(.related-articles) .layout_latest {
+    width: 100%;
+  }
+
+  .blog-wrapper {
+    margin-bottom: 0;
   }
 }
