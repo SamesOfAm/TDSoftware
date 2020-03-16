@@ -5,7 +5,7 @@
   bottom: 0;
   width: 100%;
   height: 610px;
-  background: #232323;
+  background: #232323 !important;
   color: #666;
   .inside {
     height: 100%;
@@ -303,7 +303,7 @@ label[for="ctrl_EMAIL"] {
   z-index: 1;
 }
 
-#container #footer {
+#container #footer:not(.desktop-only) {
   position: initial;
   background: #232323;
   color: #666;

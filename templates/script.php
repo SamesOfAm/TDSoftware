@@ -1,4 +1,5 @@
 <script>
+    let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     let shareIconsShowing = false;
     const currentLanguage = document.children[0].lang;
     let entered = false;
@@ -41,18 +42,30 @@
     }
     let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
     jQuery(document).ready(function() {
-        let contactLink = document.querySelector('.scroll-to-end');
-        contactLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            let body = document.body,
-                html = document.documentElement;
-            let height = Math.max(body.scrollHeight, body.offsetHeight,
-                html.clientHeight, html.scrollHeight, html.offsetHeight);
-            jQuery('html, body').animate({
-                scrollTop: height
-            }, 800);
-            scrollTop: jQuery(e.target.hash).offset().top
-        });
+        if (document.querySelector('.scroll-to-end') !== null) {
+            let contactLink = document.querySelector('.scroll-to-end');
+                contactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let body = document.body,
+                        html = document.documentElement;
+                    let height = Math.max(body.scrollHeight, body.offsetHeight,
+                        html.clientHeight, html.scrollHeight, html.offsetHeight);
+                    jQuery('html, body').animate({
+                        scrollTop: height
+                    }, 800);
+                });
+        }
+
+        if (document.querySelector('.scroll-to-contact') !== null) {
+            let toContactLink = document.querySelector('.scroll-to-contact');
+            toContactLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                jQuery('html, body').animate({
+                    scrollTop: document.getElementById('contact').offsetHeight
+                }, 800);
+            });
+        }
+
         if (document.querySelector('.scroll-to-jobs') !== null) {
             let scrollToJobsLink = document.querySelector('.scroll-to-jobs');
             scrollToJobsLink.addEventListener('click', function(e) {
@@ -75,6 +88,14 @@
                 sliderMenuTopButtons[i].innerHTML = allGroups[i].dataset.group;
             }
         }
+
+        if(document.querySelector('.slider-menu') !== null) {
+            const bubbles = document.querySelector('.slider-menu').querySelectorAll('b');
+            for (let i = 0; i < bubbles.length; i++) {
+                bubbles[i].innerHTML = '';
+            }
+        }
+
         let navigationOptions = document.getElementById('header-navigation').children;
         let careerButtons = document.querySelectorAll('.career-button');
         let moreBenefitsButtons = document.querySelectorAll('.more-benefits');
@@ -105,24 +126,6 @@
                 });
             }
         }
-        let inFirstHalf = true;
-        let inSecondHalf = false;
-        jQuery(window).scroll(function(){
-            let scrolltop = window.pageYOffset;
-            let body = document.body,
-                html = document.documentElement;
-            let height = Math.max(body.scrollHeight, body.offsetHeight,
-                html.clientHeight, html.scrollHeight, html.offsetHeight);
-            if(scrolltop > height/2 && inFirstHalf) {
-                document.getElementById('main-teaser').querySelector('img').style.position = "relative";
-                inSecondHalf = true;
-                inFirstHalf = false;
-            } else if(scrolltop <= height/2 && inSecondHalf) {
-                document.getElementById('main-teaser').querySelector('img').style.position = "fixed";
-                inSecondHalf = false;
-                inFirstHalf = true;
-            }
-        });
     });
     setTimeout(function(){
         let ccLink = document.querySelector('.cc-link');
@@ -131,7 +134,7 @@
             document.getElementById('privacy-link').click();
         })
     }, 7000);
-    if(document.getElementById('mailchimp-subscribe-2').children[0].children[0].classList.contains('error')) {
+    if(document.getElementById('mailchimp-subscribe-2') !== null && document.getElementById('mailchimp-subscribe-2').children[0].children[0].classList.contains('error')) {
         document.querySelector('.social-media').classList.add('error-bump');
         jQuery("html, body").animate({ scrollTop: jQuery(document).height() }, "slow");
     }
@@ -147,18 +150,21 @@
             shareIconsShowing = false;
         }
     }
+
 </script>
 
 
-<script type="text/javascript" src="files/assets/j/fullpage.js"></script>
+<script type="text/javascript" src="files/assets/js/fullpage.js"></script>
 <script type="text/javascript">
-    var myFullpage = new fullpage('#fullpage', {
-        licenseKey: 'F072EB1D-C39143F7-8FF38B6E-AD2F5BB4',
-        verticalCentered: false,
-        css3: false,
-        anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9']
-    });
-    setTimeout(function(){
-        document.getElementById('footer').style.height = "100%;";
-    }, 1000);
+    if(width >= 1025 && !document.getElementById('top').classList.contains('blog') && !document.getElementById('top').classList.contains('blog-article')) {
+        var myFullpage = new fullpage('#fullpage', {
+            licenseKey: 'F072EB1D-C39143F7-8FF38B6E-AD2F5BB4',
+            verticalCentered: false,
+            css3: false,
+            anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9']
+        });
+        setTimeout(function(){
+            document.getElementById('footer').style.height = "100%;";
+        }, 1000);
+    }
 </script>
