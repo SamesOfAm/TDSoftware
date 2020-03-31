@@ -47,7 +47,7 @@
         }
       }
       &.ce_headline {
-        width: $width;
+        width: 100%;
         max-width: $max-width;
         margin: 80px auto 40px;
         padding-bottom: 15px;
@@ -67,6 +67,11 @@
       &:hover {
         color: $dark-orange;
       }
+    }
+    .more a {
+      padding: 4px 7px;
+      background: $dark-orange;
+      border-radius: 5px;
     }
     .blog-overview-left {
       figure {
@@ -252,6 +257,8 @@
   width: 100%;
   max-width: $max-width;
   margin: 0 auto 100px;
+  display: flex;
+  justify-content: space-between;
   > .layout_latest {
     float: left;
     width: 30%;
@@ -335,12 +342,13 @@
     list-style: none;
     li {
       float: left;
-      a {
+      a, strong {
         margin: 3px;
         display: inline-block;
         padding: 4px 7px;
-        background-color: white;
-        color: $dark-gray;
+        background-color: $dark-gray;
+        color: white;
+        border-radius: 5px;
         font-size: 14px;
         text-decoration: none;
         transition: background-color 250ms;
@@ -468,8 +476,9 @@
 
 .related {
   padding: 4px 7px;
-  background-color: white;
-  color: $dark-gray;
+  background-color: $dark-gray;
+  color: white;
+  border-radius: 5px;
   font-size: 14px;
 }
 
@@ -507,9 +516,29 @@
   }
 }
 
+.invisible-list {
+  display: none;
+  margin: 100px auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 66.6%;
+  float: left;
+  max-width: 1150px;
+  > div:not(.show-all-wrapper) {
+    width: 47%;
+  }
+}
+
 @media screen and (max-width: $smartphone) {
   body.blog {
     background: #232323;
+  }
+
+  .invisible-list {
+    width: 100%;
+    > div:not(.show-all-wrapper) {
+      width: 100%;
+    }
   }
 
   .blog #main {
@@ -555,6 +584,7 @@
   }
 
   .mod_newslist.related-articles {
+    display: block;
     margin: 0 auto;
     > .layout_latest {
       width: 100%;

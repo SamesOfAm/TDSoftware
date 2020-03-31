@@ -11,4 +11,5 @@
             rightColumn.appendChild(articles[i]);
         }
     }
+
 </script>

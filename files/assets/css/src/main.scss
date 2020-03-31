@@ -240,6 +240,7 @@ p {
       }
       ul {
         list-style: none;
+        padding-left: 15px;
         li {
           position: relative;
           &:before {
@@ -854,7 +855,7 @@ div.number-section:nth-child(2) {
   font-size: 25pt;
   margin: 5px;
   img {
-    height: 27px;
+    height: 20px;
   }
 }
 
@@ -1443,6 +1444,7 @@ h3.center-content {
   #main .mod_article.services {
     height: auto;
     .ce_text {
+      margin-bottom: 80px;
       h2 {
         margin: 60px 0 10px 0;
         font-size: 30px;

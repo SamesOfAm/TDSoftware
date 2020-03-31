@@ -15,7 +15,9 @@
     <div class="short-facts-wrapper">
         <div class="short-facts">
             <h4><?= $this->elements['short-fact-one']; ?></h4>
-            <p><?= $this->elements['category']; ?></p>
+            <?php foreach($this->data['category-icon']['value'] as $value): ?>
+                            <span class="group-benefit-icon"><img src="files/assets/layout/<?=  $value; ?>.png"></span>
+                        <?php endforeach; ?>
             <h4><?= $this->elements['short-fact-two']; ?></h4>
             <p><?= $this->elements['sector']; ?></p>
             <h4><?= $this->elements['short-fact-three']; ?></h4>

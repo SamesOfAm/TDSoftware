@@ -151,6 +151,29 @@
         }
     }
 
+    if(window.location.href.indexOf('/category/') !== -1) {
+        document.querySelector('.invisible-list').style.display = "flex";
+        document.getElementById('article-detail').querySelector('.ce_headline').style.display = "none";
+        document.querySelector('.mod_newscategories').style.margin = "100px auto";
+    }
+
+    function removeStyles(el) {
+        el.removeAttribute('style');
+        el.removeAttribute('width');
+
+        if(el.childNodes.length > 0) {
+            for(var child in el.childNodes) {
+                if(el.childNodes[child].nodeType == 1)
+                    removeStyles(el.childNodes[child]);
+            }
+        }
+    }
+
+    if(document.querySelector('.services') !== null) {
+        removeStyles(document.querySelector('.services'));
+    }
+
+
 </script>
 
 
