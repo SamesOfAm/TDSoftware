@@ -162,8 +162,8 @@
         el.removeAttribute('width');
 
         if(el.childNodes.length > 0) {
-            for(var child in el.childNodes) {
-                if(el.childNodes[child].nodeType == 1)
+            for(let child in el.childNodes) {
+                if(el.childNodes[child].nodeType === 1)
                     removeStyles(el.childNodes[child]);
             }
         }
@@ -189,5 +189,11 @@
         setTimeout(function(){
             document.getElementById('footer').style.height = "100%;";
         }, 1000);
+    } else if (width < 1025 && document.querySelector('.apply-button')) {
+        console.log(document.querySelector('.apply-button'));
+        applyButton = document.querySelector('.apply-button');
+        applyButtonHref = document.querySelector('.apply-button').href;
+        newHref = applyButtonHref.replace("section6", "jobs");
+        applyButton.href = newHref;
     }
 </script>
