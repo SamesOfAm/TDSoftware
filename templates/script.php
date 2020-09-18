@@ -66,7 +66,7 @@
             });
         }
 
-        if (document.querySelector('.scroll-to-jobs') !== null) {
+        /* if (document.querySelector('.scroll-to-jobs') !== null) {
             let scrollToJobsLink = document.querySelector('.scroll-to-jobs');
             scrollToJobsLink.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -74,7 +74,7 @@
                     scrollTop: jQuery(e.target.hash).offset().top
                 })
             })
-        }
+        } */
         if(document.querySelector('.slider-menu-top') !== null && document.body.classList.contains('homepage')) {
             let allReferences = document.querySelectorAll('.referenz');
             let sliderMenuTopButtons = document.querySelector('.slider-menu-top').children;
@@ -190,10 +190,13 @@
             document.getElementById('footer').style.height = "100%;";
         }, 1000);
     } else if (width < 1025 && document.querySelector('.apply-button')) {
-        console.log(document.querySelector('.apply-button'));
         applyButton = document.querySelector('.apply-button');
-        applyButtonHref = document.querySelector('.apply-button').href;
+        applyButtonHref = applyButton.href;
         newHref = applyButtonHref.replace("section6", "jobs");
         applyButton.href = newHref;
+        toJobsButton = document.querySelector('.scroll-to-jobs');
+        toJobsButtonHref = toJobsButton.href;
+        newHrefJobs = toJobsButtonHref.replace("section6", "jobs");
+        toJobsButton.href = newHrefJobs;
     }
 </script>
